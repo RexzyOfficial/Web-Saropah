@@ -763,19 +763,26 @@ header.scrolled .dropdown-toggle {
 }
 
 /* Perfect X Animation */
+/* Perfect X Animation */
 .mobile-toggle.active span:nth-child(1) {
     top: 50%;
-    transform: translateY(-50%) rotate(45deg);
+    margin-top: -1px;
+    /* Center based on height */
+    transform: rotate(45deg);
 }
 
 .mobile-toggle.active span:nth-child(2) {
     opacity: 0;
-    transform: translateY(-50%) scale(0);
+    transform: scale(0);
 }
 
 .mobile-toggle.active span:nth-child(3) {
-    bottom: 50%;
-    transform: translateY(50%) rotate(-45deg);
+    top: 50%;
+    margin-top: -1px;
+    /* Center based on height */
+    bottom: auto;
+    /* Override bottom positioning */
+    transform: rotate(-45deg);
 }
 
 /* Hero Section */
@@ -1202,6 +1209,10 @@ footer {
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
+    }
+
+    .nav-menu.active {
+        right: 0;
     }
 
     .nav-menu ul {
