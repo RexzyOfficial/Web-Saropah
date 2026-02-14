@@ -1195,6 +1195,12 @@ footer {
         display: flex !important;
     }
 
+    /* Ensure mobile toggle is visible on light background when menu is active */
+    .nav-menu.active~.mobile-toggle span,
+    .mobile-toggle.active span {
+        background-color: var(--color-primary-dark) !important;
+    }
+
     h2 {
         font-size: 2rem;
     }
@@ -1217,7 +1223,17 @@ footer {
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
-        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        box-shadow: none;
+        /* Remove shadow */
+        scrollbar-width: none;
+        /* Firefox */
+        -ms-overflow-style: none;
+        /* IE/Edge */
+    }
+
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .nav-menu::-webkit-scrollbar {
+        display: none;
     }
 
     .nav-menu.active {
@@ -1258,13 +1274,31 @@ footer {
     }
 
     /* Mobile Dropdown Styling */
+    /* Mobile Dropdown Styling - Reset from Desktop */
+    .dropdown-menu {
+        position: static !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        box-shadow: none !important;
+        background: transparent !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        min-width: unset !important;
+        transform: none !important;
+        border-radius: 0 !important;
+        width: 100% !important;
+        display: none;
+        /* Hidden by default */
+    }
+
     .menu-dropdown.active .dropdown-menu {
+        display: block;
+        /* Show when active */
         margin-top: 0;
         padding-bottom: 0;
-        background: rgba(0, 0, 0, 0.02);
-        /* Slight background for distinction */
-        border-radius: 8px;
-        margin-bottom: 15px;
+        background: transparent;
+        border-radius: 0;
+        margin-bottom: 10px;
     }
 
     .category-link {
