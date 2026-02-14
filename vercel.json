@@ -1,0 +1,13 @@
+{
+  "rewrites": [
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/about", "destination": "/about.html" },
+    { "source": "/coffee-basic", "destination": "/coffee-basic.html" },
+    { "source": "/coffee-signature", "destination": "/coffee-signature.html" },
+    { "source": "/milkshake", "destination": "/milkshake.html" },
+    { "source": "/tea", "destination": "/tea.html" },
+    { "source": "/food", "destination": "/food.html" },
+    { "source": "/visit", "destination": "/visit.html" },
+    { "source": "/contact", "destination": "/contact.html" }
+  ]
+}

@@ -1,0 +1,174 @@
+{
+    "categories": [
+        {
+            "id": "coffee-basic",
+            "name": "Basic Coffee",
+            "items": [
+                {
+                    "name": "Americano",
+                    "price": "15K",
+                    "description": "Classic black coffee"
+                },
+                {
+                    "name": "Long Black",
+                    "price": "15K",
+                    "description": "Stronger than Americano"
+                },
+                {
+                    "name": "Espresso",
+                    "price": "15K",
+                    "description": "Pure coffee essence"
+                },
+                {
+                    "name": "Cappuccino",
+                    "price": "23K",
+                    "description": "Espresso with steamed milk foam"
+                },
+                {
+                    "name": "Latte",
+                    "price": "23K",
+                    "description": "Creamy espresso with milk"
+                }
+            ]
+        },
+        {
+            "id": "coffee-signature",
+            "name": "Signature Coffee",
+            "items": [
+                {
+                    "name": "Saropah Coffee",
+                    "price": "23K",
+                    "description": "Signature milk coffee"
+                },
+                {
+                    "name": "Vanilla Latte",
+                    "price": "23K",
+                    "description": "Classic vanilla flavor"
+                },
+                {
+                    "name": "Hazelnut Latte",
+                    "price": "23K",
+                    "description": "Rich hazelnut notes"
+                },
+                {
+                    "name": "Mocha Latte",
+                    "price": "25K",
+                    "description": "Chocolate and coffee blend"
+                },
+                {
+                    "name": "Palm Sugar Coffee",
+                    "price": "24K",
+                    "description": "Traditional palm sugar sweetness"
+                },
+                {
+                    "name": "Caramel Brulee Machiato",
+                    "price": "23K",
+                    "description": "Luxurious caramel blend"
+                },
+                {
+                    "name": "Pandan Latte",
+                    "price": "24K",
+                    "description": "Aromatic pandan flavor"
+                }
+            ]
+        },
+        {
+            "id": "food",
+            "name": "Food & Snacks",
+            "items": [
+                {
+                    "name": "Croissant",
+                    "price": "18K",
+                    "description": "Buttery and flaky"
+                },
+                {
+                    "name": "Chocolate Cake",
+                    "price": "25K",
+                    "description": "Rich dark chocolate"
+                },
+                {
+                    "name": "Sandwich",
+                    "price": "22K",
+                    "description": "Fresh and healthy"
+                },
+                {
+                    "name": "Muffin",
+                    "price": "16K",
+                    "description": "Daily baked"
+                },
+                {
+                    "name": "Donut",
+                    "price": "12K",
+                    "description": "Classic sweetness"
+                }
+            ]
+        },
+        {
+            "id": "milkshake",
+            "name": "Milk Shake",
+            "items": [
+                {
+                    "name": "Matcha",
+                    "price": "26K",
+                    "description": "Premium green tea blend"
+                },
+                {
+                    "name": "Red Velvet",
+                    "price": "22K",
+                    "description": "Classic red velvet taste"
+                },
+                {
+                    "name": "Taro",
+                    "price": "22K",
+                    "description": "Creamy purple yam"
+                },
+                {
+                    "name": "Caramel",
+                    "price": "22K",
+                    "description": "Sweet buttery caramel"
+                },
+                {
+                    "name": "Chocolate",
+                    "price": "24K",
+                    "description": "Rich cocoa flavor"
+                },
+                {
+                    "name": "Thai Tea",
+                    "price": "23K",
+                    "description": "Authentic Thai blend"
+                }
+            ]
+        },
+        {
+            "id": "tea",
+            "name": "Tea & Non-Coffee",
+            "items": [
+                {
+                    "name": "Green Tea",
+                    "price": "15K",
+                    "description": "Pure Japanese sencha"
+                },
+                {
+                    "name": "Jasmine Tea",
+                    "price": "15K",
+                    "description": "Refreshing jasmine aroma"
+                },
+                {
+                    "name": "Black Tea",
+                    "price": "15K",
+                    "description": "Classic robust tea"
+                },
+                {
+                    "name": "Hot Chocolate",
+                    "price": "18K",
+                    "description": "Warm creamy chocolate"
+                },
+                {
+                    "name": "Fresh Juice",
+                    "price": "20K",
+                    "description": "Seasonal fruit selection"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} - Kopi Saropah</title>
+    <meta name="description" content="{{ description }}">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="manifest" href="/manifest.json">
+</head>
+<body>
+    <header>
+        <div class="container d-flex justify-between align-center">
+            <a href="/" class="logo">
+                <img src="/assets/images/logo.webp" alt="Kopi Saropah Logo" loading="lazy">
+                <span>KOPI SAROPAH</span>
+            </a>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="/" class="{% if page.url == '/' %}active{% endif %}">Home</a></li>
+                    <li><a href="/about" class="{% if page.url == '/about/' %}active{% endif %}">About</a></li>
+                    <li class="menu-dropdown">
+                        <a href="#" class="dropdown-toggle">Menu</a>
+                        <div class="dropdown-menu">
+                            <div class="dropdown-column">
+                                <a href="/coffee-basic" class="category-link">Coffee</a>
+                            </div>
+                            <div class="dropdown-column">
+                                <a href="/milkshake" class="category-link">Milk Shake</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <a href="https://easyeat.id/r/kopisaropah/3" target="_blank" class="btn">Order Now</a>
+        </div>
+    </header>
+
+    <main>
+        {{ content | safe }}
+    </main>
+
+    <footer>
+        <!-- Footer content... -->
+    </footer>
+
+    <script src="/assets/js/main.js"></script>
+    <script src="/assets/js/whatsapp-widget.js"></script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+{
+    "name": "web-saropah",
+    "version": "1.0.0",
+    "description": "Premium Coffee Experience Website",
+    "main": "index.js",
+    "scripts": {
+        "start": "eleventy --serve",
+        "build": "eleventy",
+        "optimize-images": "node scripts/image-optimizer.js",
+        "minify-css": "cleancss -o assets/css/style.min.css assets/css/style.css",
+        "minify-js": "terser assets/js/main.js -o assets/js/main.min.js",
+        "debug": "DEBUG=Eleventy* npx @11ty/eleventy"
+    },
+    "dependencies": {
+        "@11ty/eleventy": "^2.0.1",
+        "sharp": "^0.32.6",
+        "clean-css-cli": "^5.6.2",
+        "terser": "^5.19.2",
+        "purgecss": "^5.0.0",
+        "critical": "^6.0.0"
+    },
+    "devDependencies": {
+        "html-minifier": "^4.0.0"
+    }
+}
