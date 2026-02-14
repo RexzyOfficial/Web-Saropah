@@ -6,6 +6,20 @@
  */
 
 const MenuRenderer = {
+    // Escape HTML to prevent XSS
+    escapeHTML(str) {
+        if (!str) return '';
+        return String(str).replace(/[&<>"']/g, function (m) {
+            return {
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#039;'
+            }[m];
+        });
+    },
+
     async init() {
         const menuContainer = document.querySelector('.menu-grid');
         if (!menuContainer) return;
@@ -32,22 +46,28 @@ const MenuRenderer = {
     },
 
     renderMenu(container, items) {
-        container.innerHTML = items.map(item => `
+        container.innerHTML = items.map(item => {
+            // Sanitize inputs
+            const safeName = this.escapeHTML(item.name);
+            const safePrice = this.escapeHTML(item.price);
+            const safeImage = this.escapeHTML(item.image || 'assets/images/logo.webp');
+
+            return `
             <div class="menu-item fade-in">
                 <div class="item-image">
-                    <img src="${item.image || 'assets/images/logo.webp'}" alt="${item.name}" loading="lazy">
+                    <img src="${safeImage}" alt="${safeName}" loading="lazy">
                 </div>
                 <div class="item-details">
                     <div class="item-header">
-                        <h4>${item.name}</h4>
-                        <span class="price">${item.price}</span>
+                        <h4>${safeName}</h4>
+                        <span class="price">${safePrice}</span>
                     </div>
                     <div class="item-actions mt-sm">
                         <a href="https://easyeat.id/r/kopisaropah/3" target="_blank" class="btn-order">Order Now</a>
                     </div>
                 </div>
             </div>
-        `).join('');
+        `}).join('');
 
         // Trigger animation for dynamic items
         setTimeout(() => {
