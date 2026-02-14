@@ -143,10 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
         lastScroll = currentScroll;
     });
 
-    // Mobile Menu Toggle
-    const mobileToggle = document.querySelector('.mobile-toggle');
-    const navMenu = document.querySelector('.nav-menu');
-
+    // Mobile Menu Toggle (Reusing variables declared above)
     if (mobileToggle && navMenu) {
         mobileToggle.addEventListener('click', () => {
             mobileToggle.classList.toggle('active');
