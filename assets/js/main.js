@@ -2,41 +2,70 @@ document.addEventListener('DOMContentLoaded', () => {
     // Dropdown Menu Handler
     const menuDropdown = document.querySelector('.menu-dropdown');
     const dropdownToggle = document.querySelector('.dropdown-toggle');
-    const categoryLinks = document.querySelectorAll('.category-link');
+    const hiddenDropdownMenu = document.querySelector('.dropdown-menu'); // The container
 
+    // Toggle main "Menu" dropdown on mobile
     if (dropdownToggle && menuDropdown) {
         dropdownToggle.addEventListener('click', (e) => {
-            e.preventDefault();
-            menuDropdown.classList.toggle('active');
-        });
+            if (window.innerWidth <= 768) {
+                e.preventDefault();
+                menuDropdown.classList.toggle('active');
 
-        // Handle coffee submenu pada mobile
-        const coffeeLink = categoryLinks[0];
-        if (coffeeLink && coffeeLink.nextElementSibling) {
-            coffeeLink.addEventListener('click', (e) => {
-                if (window.innerWidth <= 768) {
-                    e.preventDefault();
-                    coffeeLink.parentElement.classList.toggle('active');
-                }
-            });
-        }
-
-        // Close dropdown saat klik link (non-coffee items)
-        categoryLinks.forEach((link, index) => {
-            // Skip Coffee category yang punya submenu
-            if (index !== 0) {
-                link.addEventListener('click', (e) => {
-                    menuDropdown.classList.remove('active');
-                });
-            }
-        });
-
-        document.addEventListener('click', (e) => {
-            if (!menuDropdown.contains(e.target) && !dropdownToggle.contains(e.target)) {
-                menuDropdown.classList.remove('active');
+                // Optional: Rotate arrow if you had one on the main menu toggle
+            } else {
+                // Desktop behavior (optional, CSS hover usually handles this but click can toggle too)
+                e.preventDefault();
+                // Desktop toggle logic if needed, otherwise CSS handles hover
             }
         });
     }
+
+    // Handle Submenus (like Coffee) on Mobile
+    const categoryLinks = document.querySelectorAll('.category-link');
+    categoryLinks.forEach(link => {
+        const subMenu = link.nextElementSibling;
+        if (subMenu && subMenu.classList.contains('subcategory-menu')) {
+            link.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    // Toggle the parent column to trigger CSS max-height
+                    link.parentElement.classList.toggle('active');
+
+                    // Rotate arrow
+                    const arrow = link.querySelector('.arrow');
+                    if (arrow) {
+                        arrow.style.transform = link.parentElement.classList.contains('active')
+                            ? 'rotate(90deg)'
+                            : 'rotate(0deg)';
+                    }
+                }
+            });
+        }
+    });
+
+    // Close mobile menu when clicking a final link
+    const allLinks = document.querySelectorAll('.nav-menu a:not(.dropdown-toggle):not(.category-link)');
+    const mobileToggle = document.querySelector('.mobile-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+
+    allLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (window.innerWidth <= 768) {
+                mobileToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.classList.remove('no-scroll');
+            }
+        });
+    });
+
+    // Close Dropdown when clicking outside (Desktop)
+    document.addEventListener('click', (e) => {
+        if (window.innerWidth > 768) {
+            if (menuDropdown && !menuDropdown.contains(e.target) && !dropdownToggle.contains(e.target)) {
+                menuDropdown.classList.remove('active');
+            }
+        }
+    });
 
     // Testimonial Carousel
     let currentSlide = 0;
