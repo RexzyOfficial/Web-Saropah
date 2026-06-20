@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com;">
+        content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com; frame-src https://www.google.com; form-action 'self' https://formspree.io;">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Visit Us - Kopi Saropah</title>
     <meta name="description" content="Visit Kopi Saropah. Check our location, opening hours, and facilities.">
@@ -15,12 +15,16 @@
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://kopisaropah.netlify.app/visit">
+    <meta property="og:url" content="https://web-saropah.vercel.app/visit">
     <meta property="og:title" content="Visit Us - Kopi Saropah">
     <meta property="og:description" content="Visit Kopi Saropah. Check our location, opening hours, and facilities.">
-    <meta property="og:image" content="https://kopisaropah.netlify.app/assets/images/logo.webp">
+    <meta property="og:image" content="https://web-saropah.vercel.app/assets/images/logo.webp">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap">
     <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/responsive-fixes.css">
     <link rel="manifest" href="/manifest.json">
 
     <style>
@@ -41,7 +45,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-image: url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-image: url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=50');
             background-size: cover;
             background-position: center;
             opacity: 0.2;
@@ -227,7 +231,7 @@
     <header>
         <div class="container d-flex justify-between align-center">
             <a href="index.html" class="logo">
-                <img src="/assets/images/logo.webp" alt="Kopi Saropah Logo">
+                <img src="/assets/images/logo.webp" alt="Kopi Saropah Logo" width="60" height="60">
                 <span>KOPI SAROPAH</span>
             </a>
             <nav class="nav-menu">
@@ -336,9 +340,9 @@
                 <h2>Our Location</h2>
             </div>
             <div class="map-container fade-in mt-40">
-                <iframe class="full-size"
+                <iframe class="full-size" title="Lokasi Kopi Saropah di Google Maps"
                     src="https://www.google.com/maps?q=-6.1810223,106.5882878&hl=id&z=17&output=embed" frameborder="0"
-                    style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0">
+                    style="border:0;" loading="lazy" allowfullscreen="" aria-hidden="false" tabindex="0">
                 </iframe>
             </div>
         </div>
@@ -409,18 +413,18 @@
                     atmosphere that awaits you</p>
             </div>
             <div class="gallery-masonry fade-in mt-50">
-                <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                    alt="Coffee Shop Interior">
-                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                    alt="Coffee Cup">
-                <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                    alt="Latte Art">
-                <img src="https://images.unsplash.com/photo-1525610553991-2bede1a236e2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                    alt="Coffee Beans">
-                <img src="https://images.unsplash.com/photo-1442512595331-e89e7385a861?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                    alt="Cafe Ambience">
-                <img src="https://images.unsplash.com/photo-1559496417-e7f25c2c3e75?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                    alt="Coffee Bar">
+                <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=70"
+                    alt="Coffee Shop Interior" loading="lazy" width="800" height="600">
+                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=70"
+                    alt="Coffee Cup" loading="lazy" width="800" height="600">
+                <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=70"
+                    alt="Latte Art" loading="lazy" width="800" height="600">
+                <img src="https://images.unsplash.com/photo-1525610553991-2bede1a236e2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=70"
+                    alt="Coffee Beans" loading="lazy" width="800" height="600">
+                <img src="https://images.unsplash.com/photo-1442512595331-e89e7385a861?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=70"
+                    alt="Cafe Ambience" loading="lazy" width="800" height="600">
+                <img src="https://images.unsplash.com/photo-1559496417-e7f25c2c3e75?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=70"
+                    alt="Coffee Bar" loading="lazy" width="800" height="600">
             </div>
         </div>
     </section>

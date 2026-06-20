@@ -3,6 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com; frame-src https://www.google.com; form-action 'self' https://formspree.io;">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Food & Snacks - Kopi Saropah</title>
     <meta name="description" content="Food & Snacks Menu - Kopi Saropah">
@@ -11,7 +13,25 @@
     <link rel="icon" type="image/webp" href="/assets/images/logo.webp">
     <link rel="apple-touch-icon" href="/assets/images/logo.webp">
 
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://web-saropah.vercel.app/food">
+    <meta property="og:title" content="Food & Snacks - Kopi Saropah">
+    <meta property="og:description" content="Food & Snacks Menu - Kopi Saropah">
+    <meta property="og:image" content="https://web-saropah.vercel.app/assets/images/logo.webp">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://web-saropah.vercel.app/food">
+    <meta property="twitter:title" content="Food & Snacks - Kopi Saropah">
+    <meta property="twitter:description" content="Food & Snacks Menu - Kopi Saropah">
+    <meta property="twitter:image" content="https://web-saropah.vercel.app/assets/images/logo.webp">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap">
     <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/responsive-fixes.css">
     <link rel="manifest" href="/manifest.json">
 </head>
 
@@ -20,7 +40,10 @@
     <!-- Navigation -->
     <header>
         <div class="container d-flex justify-between align-center">
-            <a href="index.html" class="logo">KOPI SAROPAH</a>
+            <a href="index.html" class="logo">
+                <img src="/assets/images/logo.webp" alt="Kopi Saropah Logo" width="60" height="60">
+                <span>KOPI SAROPAH</span>
+            </a>
             <nav class="nav-menu">
                 <ul>
                     <li><a href="index.html">Home</a></li>
@@ -131,8 +154,8 @@
                     <p class="mt-15 accent-text">Open Daily: 11:00 AM - 11:00 PM</p>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Kopi Saropah. All rights reserved. | Ngopi Sepuasnya, Bayar Seikhlasnya.</p>
+            <div class="footer-bottom text-center">
+                <p>&copy; 2026 Kopi Saropah. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
