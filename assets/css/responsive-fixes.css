@@ -560,11 +560,11 @@
     }
 }
 
-/* ── CONTACT: Prevent iOS input zoom ── */
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-textarea,
-select {
+/* ── CONTACT: Prevent iOS input zoom + fix text color ── */
+.form-group input,
+.form-group textarea,
+.form-group select {
     font-size: max(16px, 1em);
+    color: var(--color-text-main);
+    background-color: #fafafa;
 }
