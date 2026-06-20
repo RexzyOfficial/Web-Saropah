@@ -1,0 +1,570 @@
+/* ============================================
+   RESPONSIVE & VISUAL IMPROVEMENTS
+   Patch file - loaded after style.css
+   ============================================ */
+
+/* ── GLOBAL GRID FIX ── */
+/* Prevent minmax(300px) from overflowing small screens */
+.grid-3 {
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+}
+
+/* ── PHILOSOPHY SECTION REDESIGN ── */
+/* Instead of plain cards, make it a bold 3-column statement strip */
+.philosophy {
+    background: var(--color-primary-dark);
+    padding: 80px 0;
+}
+
+.philosophy .section-title span {
+    color: var(--color-accent);
+}
+
+.philosophy .section-title h2 {
+    color: white;
+}
+
+.philosophy .card {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 0;
+    padding: 3rem 2rem;
+    transition: border-color 0.3s, background 0.3s;
+    position: relative;
+}
+
+.philosophy .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 0;
+    background: var(--color-accent);
+    transition: height 0.4s ease;
+}
+
+.philosophy .card:hover::before {
+    height: 100%;
+}
+
+.philosophy .card:hover {
+    background: rgba(255,255,255,0.05);
+    border-color: rgba(193,154,107,0.4);
+    transform: none;
+    box-shadow: none;
+}
+
+.philosophy .card h3 {
+    color: white;
+    font-size: 1.6rem;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.philosophy .card p {
+    color: rgba(255,255,255,0.65);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin: 0;
+}
+
+.philosophy .icon-box {
+    color: var(--color-accent);
+    margin-bottom: 0.5rem;
+}
+
+/* ── EXPERIENCE SECTION ── */
+.experience {
+    padding: 100px 0;
+}
+
+.experience .text-col p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--color-text-muted);
+}
+
+/* Make stats more impactful */
+.stat-item h4 {
+    font-size: 3rem;
+    color: var(--color-accent);
+    font-family: var(--font-heading);
+    font-weight: 700;
+    margin-bottom: 2px;
+}
+
+.stat-item p {
+    font-family: var(--font-subheading);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-text-muted);
+    margin: 0;
+}
+
+/* ── HERO SECTION ── */
+.hero-content h1 {
+    font-size: clamp(2.2rem, 6vw, 5rem);
+    letter-spacing: 0.08em;
+}
+
+.hero-sub {
+    font-size: clamp(0.9rem, 2.5vw, 1.25rem);
+}
+
+/* Scroll indicator hide on small */
+@media (max-height: 600px) {
+    .scroll-indicator { display: none; }
+}
+
+/* ── BEST SELLER CARDS ── */
+.menu-card {
+    border-radius: 12px;
+}
+
+.card-info {
+    padding: 1.25rem 1.5rem 1.5rem;
+}
+
+.card-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* ── TESTIMONIALS ── */
+.testimonial-card {
+    padding: 2.5rem 2rem;
+    min-height: auto;
+}
+
+.quote {
+    font-size: 1.1rem;
+}
+
+/* ── FOOTER ── */
+.footer-grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+    gap: 40px;
+}
+
+/* ============================================
+   TABLET: 769px – 1024px
+   ============================================ */
+@media (max-width: 1024px) {
+    .split-layout {
+        gap: 2.5rem;
+    }
+
+    .image-col img {
+        width: 100%;
+    }
+
+    .carousel-btn.prev { left: -10px; }
+    .carousel-btn.next { right: -10px; }
+}
+
+/* ============================================
+   MOBILE: ≤ 768px
+   ============================================ */
+@media (max-width: 768px) {
+    :root {
+        --spacing-xl: 4rem;
+        --spacing-lg: 2.5rem;
+        --spacing-md: 1.5rem;
+    }
+
+    section {
+        padding: 60px 0;
+    }
+
+    /* Philosophy: stack vertically, left-align */
+    .philosophy {
+        padding: 60px 0;
+    }
+
+    .philosophy .card {
+        text-align: left;
+        border-left: 3px solid var(--color-accent);
+        border-top: none;
+        border-right: none;
+        border-bottom: none;
+        padding: 1.5rem 1.5rem;
+        background: rgba(255,255,255,0.04);
+    }
+
+    .philosophy .card::before {
+        display: none;
+    }
+
+    .philosophy .card h3 {
+        font-size: 1.35rem;
+    }
+
+    /* Experience: image full width then text */
+    .split-layout {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .image-col, .text-col {
+        width: 100%;
+    }
+
+    .image-col img {
+        width: 100%;
+        border-radius: 12px;
+        max-height: 280px;
+        object-fit: cover;
+    }
+
+    .stats.grid.grid-3 {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+    }
+
+    .stat-item h4 {
+        font-size: 2rem;
+    }
+
+    /* Testimonials */
+    .carousel-container {
+        padding: 0 10px;
+    }
+
+    .carousel-btn.prev { left: 0; }
+    .carousel-btn.next { right: 0; }
+
+    .testimonial-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .quote {
+        font-size: 1rem;
+    }
+
+    /* Hero */
+    .hero-content {
+        padding: 0 1.25rem;
+    }
+
+    /* Menu cards spacing */
+    .card-info {
+        padding: 1rem 1.25rem 1.25rem;
+    }
+
+    /* Section title */
+    .section-title {
+        margin-bottom: 2rem;
+    }
+
+    .section-title h2 {
+        font-size: clamp(1.6rem, 5vw, 2.2rem);
+    }
+
+    /* Visit page info cards — fix negative margin on mobile */
+    .info-cards {
+        margin-top: 0 !important;
+        padding-top: 2rem;
+    }
+
+    /* Footer tweaks */
+    .footer-grid {
+        gap: 30px;
+        margin-bottom: 30px;
+    }
+
+    footer {
+        padding: 50px 0 25px !important;
+    }
+
+    /* Logo text hide on very small */
+    .logo span {
+        font-size: 1rem;
+    }
+}
+
+/* ============================================
+   SMALL MOBILE: ≤ 480px
+   ============================================ */
+@media (max-width: 480px) {
+    :root {
+        --header-height: 65px;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+        letter-spacing: 0.04em;
+    }
+
+    .hero-sub {
+        font-size: 0.8rem;
+        letter-spacing: 0.08em;
+    }
+
+    .hero-tagline {
+        font-size: 0.9rem;
+    }
+
+    /* Single column grid */
+    .grid-3 {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .philosophy .card {
+        padding: 1.25rem;
+    }
+
+    .stats.grid.grid-3 {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.5rem;
+    }
+
+    .stat-item h4 {
+        font-size: 1.6rem;
+    }
+
+    .stat-item p {
+        font-size: 0.7rem;
+    }
+
+    /* Testimonials */
+    .testimonial-card {
+        padding: 1.5rem 1rem;
+    }
+
+    .quote {
+        font-size: 0.95rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .author div h4 {
+        font-size: 0.85rem;
+    }
+
+    /* Menu cards on small */
+    .card-image {
+        height: 200px;
+    }
+
+    /* Footer single col */
+    .footer-social {
+        gap: 10px;
+    }
+
+    .footer-social a {
+        width: 36px;
+        height: 36px;
+    }
+
+    /* Logo */
+    .logo img {
+        height: 44px;
+        width: 44px;
+    }
+
+    .logo span {
+        font-size: 0.85rem;
+        letter-spacing: 0.03em;
+    }
+
+    /* Section title */
+    .section-title {
+        margin-bottom: 1.5rem;
+    }
+
+    /* Visit page hero */
+    .visit-hero h1 {
+        font-size: 2rem !important;
+    }
+
+    .visit-hero p {
+        font-size: 1rem !important;
+    }
+
+    /* About page */
+    .about-hero h1 {
+        font-size: 2rem;
+    }
+
+    /* Contact form */
+    .contact-form input,
+    .contact-form textarea,
+    .contact-form select {
+        font-size: 16px; /* Prevent iOS zoom */
+    }
+}
+
+/* ============================================
+   EXTRA SMALL: ≤ 360px (Galaxy S8, older phones)
+   ============================================ */
+@media (max-width: 360px) {
+    .logo span {
+        display: none; /* Just show icon on tiny screens */
+    }
+
+    .hero-content h1 {
+        font-size: 1.75rem;
+    }
+
+    .stat-item h4 {
+        font-size: 1.4rem;
+    }
+
+    .carousel-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+    }
+}
+
+/* ── MILESTONE CARDS (About page - replaces timeline) ── */
+.journey-section {
+    padding: 100px 0;
+    background: var(--color-bg-main);
+}
+
+.milestone-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin-top: 3rem;
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.milestone-card {
+    padding: 2.5rem 2rem;
+    background: white;
+    border-right: 1px solid rgba(0,0,0,0.08);
+    position: relative;
+    transition: background 0.3s;
+}
+
+.milestone-card:last-child {
+    border-right: none;
+}
+
+.milestone-card:hover {
+    background: var(--color-bg-main);
+}
+
+.milestone-card--highlight {
+    background: var(--color-primary-dark);
+}
+
+.milestone-card--highlight h3,
+.milestone-card--highlight p,
+.milestone-card--highlight .milestone-icon {
+    color: rgba(255,255,255,0.9);
+}
+
+.milestone-card--highlight p {
+    color: rgba(255,255,255,0.65);
+}
+
+.milestone-card--highlight .milestone-year {
+    color: var(--color-accent);
+}
+
+.milestone-card--highlight:hover {
+    background: var(--color-primary);
+}
+
+.milestone-year {
+    font-family: var(--font-subheading);
+    font-weight: 700;
+    font-size: 2.2rem;
+    color: var(--color-accent);
+    letter-spacing: -0.02em;
+    margin-bottom: 0.75rem;
+    display: block;
+    line-height: 1;
+}
+
+.milestone-icon {
+    color: var(--color-primary-light);
+    margin-bottom: 1rem;
+}
+
+.milestone-card h3 {
+    font-size: 1.25rem;
+    color: var(--color-primary-dark);
+    margin-bottom: 0.75rem;
+}
+
+.milestone-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    margin: 0;
+}
+
+@media (max-width: 900px) {
+    .milestone-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .milestone-card {
+        border-bottom: 1px solid rgba(0,0,0,0.08);
+        border-right: 1px solid rgba(0,0,0,0.08);
+    }
+
+    .milestone-card:nth-child(2),
+    .milestone-card:nth-child(4) {
+        border-right: none;
+    }
+
+    .milestone-card:nth-child(3),
+    .milestone-card:nth-child(4) {
+        border-bottom: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .milestone-grid {
+        grid-template-columns: 1fr;
+        border-radius: 12px;
+    }
+
+    .milestone-card {
+        border-right: none;
+        border-bottom: 1px solid rgba(0,0,0,0.08);
+        padding: 1.75rem 1.5rem;
+    }
+
+    .milestone-card:last-child {
+        border-bottom: none;
+    }
+
+    .milestone-year {
+        font-size: 1.75rem;
+    }
+
+    .journey-section {
+        padding: 60px 0;
+    }
+}
+
+/* ── VISIT PAGE: Fix negative margin info-cards ── */
+@media (max-width: 768px) {
+    .info-cards {
+        margin-top: 2rem !important;
+    }
+
+    .info-card {
+        padding: 30px 20px;
+    }
+}
+
+/* ── CONTACT: Prevent iOS input zoom ── */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea,
+select {
+    font-size: max(16px, 1em);
+}
