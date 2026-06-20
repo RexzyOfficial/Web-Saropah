@@ -9,7 +9,6 @@ const WhatsAppWidget = {
     init() {
         this.renderFloatingButton();
         this.setupEventListeners();
-        this.injectStyles();
     },
 
     renderFloatingButton() {
@@ -46,76 +45,11 @@ const WhatsAppWidget = {
                 window.open(`https://wa.me/${this.phoneNumber}?text=${message}`, '_blank');
             });
         });
-    },
-
-    injectStyles() {
-        const style = document.createElement('style');
-        style.textContent = `
-            #whatsapp-floating-button {
-                position: fixed;
-                bottom: 30px;
-                right: 30px;
-                z-index: 9999;
-                background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
-                color: white;
-                border-radius: 50px;
-                padding: 12px 24px;
-                box-shadow: 0 8px 24px rgba(37, 211, 102, 0.25);
-                display: flex;
-                align-items: center;
-                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-                cursor: pointer;
-                border: 1px solid rgba(255, 255, 255, 0.1);
-            }
-            #whatsapp-floating-button:hover {
-                transform: translateY(-5px) scale(1.02);
-                box-shadow: 0 12px 32px rgba(37, 211, 102, 0.35);
-            }
-            #whatsapp-floating-button a {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                gap: 12px;
-                text-decoration: none;
-                color: white;
-                font-family: 'Inter', sans-serif;
-                font-weight: 600;
-                font-size: 15px;
-                line-height: 1;
-            }
-            #whatsapp-floating-button svg {
-                width: 24px;
-                height: 24px;
-                fill: white;
-                display: block;
-            }
-            /* Pulsing Effect */
-            @keyframes wa-pulse {
-                0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
-                70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
-                100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
-            }
-            #whatsapp-floating-button {
-                animation: wa-pulse 2s infinite;
-            }
-            @media (max-width: 768px) {
-                #whatsapp-floating-button {
-                    padding: 16px;
-                    bottom: 20px;
-                    right: 20px;
-                    border-radius: 50%;
-                }
-                #whatsapp-floating-button span {
-                    display: none;
-                }
-                #whatsapp-floating-button svg {
-                    width: 28px;
-                    height: 28px;
-                }
-            }
-        `;
-        document.head.appendChild(style);
     }
 };
 
-WhatsAppWidget.init();
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => WhatsAppWidget.init());
+} else {
+    WhatsAppWidget.init();
+}

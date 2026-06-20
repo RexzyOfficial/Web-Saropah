@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     allLinks.forEach(link => {
         link.addEventListener('click', () => {
-            if (window.innerWidth <= 768) {
+            if (window.innerWidth <= 768 && mobileToggle && navMenu) {
                 mobileToggle.classList.remove('active');
                 navMenu.classList.remove('active');
                 document.body.classList.remove('no-scroll');
@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Close Dropdown when clicking outside (Desktop)
     document.addEventListener('click', (e) => {
         if (window.innerWidth > 768) {
-            if (menuDropdown && !menuDropdown.contains(e.target) && !dropdownToggle.contains(e.target)) {
+            if (menuDropdown && dropdownToggle && !menuDropdown.contains(e.target) && !dropdownToggle.contains(e.target)) {
                 menuDropdown.classList.remove('active');
             }
         }
@@ -120,6 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let lastScroll = 0;
 
     window.addEventListener('scroll', () => {
+        if (!header) return;
         const currentScroll = window.pageYOffset;
 
         if (currentScroll > 50) {
@@ -129,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Only hide/show header if mobile menu is NOT active
-        if (!navMenu.classList.contains('active')) {
+        if (!navMenu || !navMenu.classList.contains('active')) {
             if (currentScroll > lastScroll && currentScroll > 100) {
                 // Scrolling down
                 header.style.transform = 'translateY(-100%)';
@@ -152,29 +153,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Page Loader
-    const loader = document.createElement('div');
-    loader.className = 'page-loader';
-    loader.innerHTML = '<div class="spinner"></div>';
-    document.body.appendChild(loader);
-
-    // Page Loader Safety Check
-    const removeLoader = () => {
-        if (loader && !loader.classList.contains('hidden')) {
-            loader.classList.add('hidden');
-            document.body.style.overflow = ''; // Restore scrolling
-        }
-    };
-
-    window.addEventListener('load', () => {
-        setTimeout(removeLoader, 500);
-    });
-
-    // Fallback: Force remove loader after 3 seconds
-    setTimeout(removeLoader, 3000);
-
     // Lightbox Logic
-    const galleryImages = document.querySelectorAll('.gallery-grid img');
+    const galleryImages = document.querySelectorAll('.gallery-grid img, .gallery-masonry img');
     if (galleryImages.length > 0) {
         const lightbox = document.createElement('div');
         lightbox.className = 'lightbox';

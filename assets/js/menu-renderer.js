@@ -25,10 +25,9 @@ const MenuRenderer = {
         if (!menuContainer) return;
 
         const categoryId = document.body.dataset.category;
-        console.log('Loading menu for category:', categoryId);
 
         try {
-            const response = await fetch('assets/data/menu.json');
+            const response = await fetch('/assets/data/menu.json');
             if (!response.ok) throw new Error('Menu data not found');
 
             const data = await response.json();
@@ -38,6 +37,7 @@ const MenuRenderer = {
                 this.renderMenu(menuContainer, category.items);
             } else {
                 console.warn('Category not found in JSON:', categoryId);
+                menuContainer.innerHTML = '<p class="error">Menu tidak ditemukan.</p>';
             }
         } catch (error) {
             console.error('Error loading menu:', error);
