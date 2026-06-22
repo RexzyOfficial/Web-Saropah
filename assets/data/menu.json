@@ -144,29 +144,24 @@
             "name": "Tea & Non-Coffee",
             "items": [
                 {
-                    "name": "Green Tea",
-                    "price": "15K",
-                    "description": "Pure Japanese sencha"
-                },
-                {
                     "name": "Jasmine Tea",
-                    "price": "15K",
-                    "description": "Refreshing jasmine aroma"
+                    "price": "Seikhlasnya",
+                    "description": "Teh melati harum yang menenangkan"
                 },
                 {
-                    "name": "Black Tea",
-                    "price": "15K",
-                    "description": "Classic robust tea"
+                    "name": "Lemon Tea",
+                    "price": "Seikhlasnya",
+                    "description": "Segar dan asam, cocok untuk hari panas"
                 },
                 {
-                    "name": "Hot Chocolate",
-                    "price": "18K",
-                    "description": "Warm creamy chocolate"
+                    "name": "Lychee Tea",
+                    "price": "Seikhlasnya",
+                    "description": "Perpaduan teh dengan aroma leci yang manis"
                 },
                 {
-                    "name": "Fresh Juice",
-                    "price": "20K",
-                    "description": "Seasonal fruit selection"
+                    "name": "Thai Tea",
+                    "price": "Seikhlasnya",
+                    "description": "Teh Thailand creamy dengan susu khas"
                 }
             ]
         }
