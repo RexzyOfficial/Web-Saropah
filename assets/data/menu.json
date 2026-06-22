@@ -77,29 +77,34 @@
             "name": "Food & Snacks",
             "items": [
                 {
-                    "name": "Croissant",
-                    "price": "18K",
-                    "description": "Buttery and flaky"
+                    "name": "Mix Platter",
+                    "price": "Seikhlasnya",
+                    "description": ""
                 },
                 {
-                    "name": "Chocolate Cake",
-                    "price": "25K",
-                    "description": "Rich dark chocolate"
+                    "name": "Kentang Goreng",
+                    "price": "Seikhlasnya",
+                    "description": ""
                 },
                 {
-                    "name": "Sandwich",
-                    "price": "22K",
-                    "description": "Fresh and healthy"
+                    "name": "Nasi Goreng",
+                    "price": "Seikhlasnya",
+                    "description": ""
                 },
                 {
-                    "name": "Muffin",
-                    "price": "16K",
-                    "description": "Daily baked"
+                    "name": "Chicken Nanban",
+                    "price": "Seikhlasnya",
+                    "description": ""
                 },
                 {
-                    "name": "Donut",
-                    "price": "12K",
-                    "description": "Classic sweetness"
+                    "name": "Chicken Nanban Bulgogi",
+                    "price": "Seikhlasnya",
+                    "description": ""
+                },
+                {
+                    "name": "Indomie Goreng & Rebus",
+                    "price": "Seikhlasnya",
+                    "description": ""
                 }
             ]
         },
@@ -157,11 +162,6 @@
                     "name": "Lychee Tea",
                     "price": "Seikhlasnya",
                     "description": "Perpaduan teh dengan aroma leci yang manis"
-                },
-                {
-                    "name": "Thai Tea",
-                    "price": "Seikhlasnya",
-                    "description": "Teh Thailand creamy dengan susu khas"
                 }
             ]
         }
