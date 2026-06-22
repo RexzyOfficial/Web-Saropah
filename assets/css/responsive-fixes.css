@@ -1294,3 +1294,115 @@
         font-size: 4rem;
     }
 }
+
+/* ── Tentang Saropah Section ── */
+.tentang-section {
+    padding: 100px 0;
+    background: var(--color-bg-main);
+}
+
+.tentang-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-top: 3rem;
+    align-items: start;
+}
+
+.tentang-lead p {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    line-height: 1.7;
+    color: var(--color-primary-dark);
+    font-style: italic;
+}
+
+.tentang-lead strong {
+    color: var(--color-accent);
+    font-style: normal;
+}
+
+.tentang-body p {
+    font-size: 0.97rem;
+    line-height: 1.85;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+}
+
+.tentang-body p:last-child { margin-bottom: 0; }
+
+.tentang-highlight {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin-top: 3rem;
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+}
+
+.tentang-highlight-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+}
+
+.tentang-divider {
+    width: 1px;
+    height: 50px;
+    background: rgba(0,0,0,0.08);
+    flex-shrink: 0;
+}
+
+.th-label {
+    font-family: var(--font-subheading);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+}
+
+.th-value {
+    font-family: var(--font-subheading);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--color-primary-dark);
+}
+
+@media (max-width: 768px) {
+    .tentang-section { padding: 60px 0; }
+
+    .tentang-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .tentang-lead p { font-size: 1.2rem; }
+
+    .tentang-highlight {
+        flex-wrap: wrap;
+    }
+
+    .tentang-highlight-item {
+        flex: 1 1 45%;
+        padding: 1.5rem 1rem;
+    }
+
+    .tentang-divider { display: none; }
+}
+
+@media (max-width: 480px) {
+    .tentang-highlight-item {
+        flex: 1 1 100%;
+        border-bottom: 1px solid rgba(0,0,0,0.06);
+        padding: 1.25rem 1rem;
+    }
+
+    .tentang-highlight-item:last-child { border-bottom: none; }
+}
