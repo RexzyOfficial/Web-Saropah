@@ -61,6 +61,11 @@
                     "description": "Traditional palm sugar sweetness"
                 },
                 {
+                    "name": "Butterscouth",
+                    "price": "23K",
+                    "description": ""
+                },
+                {
                     "name": "Caramel Brulee Machiato",
                     "price": "23K",
                     "description": "Luxurious caramel blend"
@@ -87,8 +92,8 @@
                     "description": ""
                 },
                 {
-                    "name": "Nasi Goreng",
-                    "price": "25K",
+                    "name": "Burger",
+                    "price": "15K",
                     "description": ""
                 },
                 {
