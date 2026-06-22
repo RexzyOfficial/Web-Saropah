@@ -1406,3 +1406,28 @@
 
     .tentang-highlight-item:last-child { border-bottom: none; }
 }
+
+/* ── Tentang Quote ── */
+.tentang-quote {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--color-primary);
+    line-height: 1.7;
+    border-left: 3px solid var(--color-accent);
+    padding: 1rem 1.25rem;
+    margin: 2rem 0 0;
+    background: rgba(193,154,107,0.06);
+    border-radius: 0 8px 8px 0;
+}
+
+.tentang-quote cite {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    font-style: normal;
+    font-family: var(--font-subheading);
+    letter-spacing: 0.06em;
+    color: var(--color-accent);
+    font-weight: 600;
+}
