@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com; frame-src https://www.google.com; form-action 'self' https://formspree.io;">
+        content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com; frame-src https://www.google.com; form-action 'self' https://api.web3forms.com; connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com https://api.web3forms.com;">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - Kopi Saropah</title>
     <meta name="description"
@@ -301,7 +301,10 @@
                 <!-- Contact Form -->
                 <div class="contact-form-card fade-in">
                     <h2>Send Us a Message</h2>
-                    <form action="https://formspree.io/f/mjgevvlj" method="POST">
+                    <form action="https://api.web3forms.com/submit" method="POST">
+                        <input type="hidden" name="access_key" value="9ca9dddd-212b-4036-8b9e-39485de647f7">
+                        <input type="hidden" name="subject" value="Pesan Baru dari Website Kopi Saropah">
+                        <input type="hidden" name="redirect" value="https://web3forms.com/success">
                         <div class="form-group">
                             <label for="name">Your Name</label>
                             <input type="text" id="name" name="name" required>
