@@ -7,27 +7,32 @@
                 {
                     "name": "Americano",
                     "price": "15K",
-                    "description": "Classic black coffee"
+                    "description": "Classic black coffee",
+                    "image": "assets/images/americano.PNG"
                 },
                 {
                     "name": "Long Black",
                     "price": "15K",
-                    "description": "Stronger than Americano"
+                    "description": "Stronger than Americano",
+                    "image": "assets/images/long-black.PNG"
                 },
                 {
                     "name": "Espresso",
                     "price": "15K",
-                    "description": "Pure coffee essence"
+                    "description": "Pure coffee essence",
+                    "image": "assets/images/espresso.png"
                 },
                 {
                     "name": "Cappuccino",
                     "price": "23K",
-                    "description": "Espresso with steamed milk foam"
+                    "description": "Espresso with steamed milk foam",
+                    "image": "assets/images/cappucino.PNG"
                 },
                 {
                     "name": "Latte",
                     "price": "23K",
-                    "description": "Creamy espresso with milk"
+                    "description": "Creamy espresso with milk",
+                    "image": "assets/images/latte.png"
                 }
             ]
         },
@@ -38,42 +43,50 @@
                 {
                     "name": "Saropah Coffee",
                     "price": "23K",
-                    "description": "Signature milk coffee"
+                    "description": "Signature milk coffee",
+                    "image": "assets/images/saropah-coffee.PNG"
                 },
                 {
                     "name": "Vanilla Latte",
                     "price": "23K",
-                    "description": "Classic vanilla flavor"
+                    "description": "Classic vanilla flavor",
+                    "image": "assets/images/vanilla-latte.png"
                 },
                 {
                     "name": "Hazelnut Latte",
                     "price": "23K",
-                    "description": "Rich hazelnut notes"
+                    "description": "Rich hazelnut notes",
+                    "image": "assets/images/hazelnut-latte.PNG"
                 },
                 {
                     "name": "Mocha Latte",
                     "price": "25K",
-                    "description": "Chocolate and coffee blend"
+                    "description": "Chocolate and coffee blend",
+                    "image": "assets/images/mocha-latte.png"
                 },
                 {
                     "name": "Palm Sugar Coffee",
                     "price": "24K",
-                    "description": "Traditional palm sugar sweetness"
+                    "description": "Traditional palm sugar sweetness",
+                    "image": "assets/images/palm-sugar.png"
                 },
                 {
                     "name": "Butterscouth",
                     "price": "23K",
-                    "description": ""
+                    "description": "",
+                    "image": "assets/images/butterscouth.PNG"
                 },
                 {
                     "name": "Caramel Brulee Machiato",
                     "price": "23K",
-                    "description": "Luxurious caramel blend"
+                    "description": "Luxurious caramel blend",
+                    "image": "assets/images/caramel-brulee.png"
                 },
                 {
                     "name": "Pandan Latte",
                     "price": "24K",
-                    "description": "Aromatic pandan flavor"
+                    "description": "Aromatic pandan flavor",
+                    "image": "assets/images/pandan-latte.PNG"
                 }
             ]
         },
@@ -84,37 +97,44 @@
                 {
                     "name": "Mix Platter",
                     "price": "25K",
-                    "description": ""
+                    "description": "",
+                    "image": "assets/images/mix-platter.PNG"
                 },
                 {
                     "name": "Kentang Goreng",
                     "price": "18K",
-                    "description": ""
+                    "description": "",
+                    "image": "assets/images/kentang.PNG"
                 },
                 {
                     "name": "Burger",
                     "price": "15K",
-                    "description": ""
+                    "description": "",
+                    "image": "assets/images/burger.PNG"
                 },
                 {
                     "name": "Nasi Goreng",
                     "price": "25K",
-                    "description": ""
+                    "description": "",
+                    "image": "assets/images/nasi-goreng.png"
                 },
                 {
                     "name": "Chicken Nanban",
                     "price": "28K",
-                    "description": ""
+                    "description": "",
+                    "image": "assets/images/chicken-nanban.PNG"
                 },
                 {
                     "name": "Chicken Nanban Bulgogi",
                     "price": "32K",
-                    "description": ""
+                    "description": "",
+                    "image": "assets/images/nanban-bulgogi.PNG"
                 },
                 {
                     "name": "Indomie Goreng & Rebus",
                     "price": "15K",
-                    "description": ""
+                    "description": "",
+                    "image": "assets/images/indomie-rebus-&-goreng.png"
                 }
             ]
         },
@@ -125,32 +145,38 @@
                 {
                     "name": "Matcha",
                     "price": "26K",
-                    "description": "Premium green tea blend"
+                    "description": "Premium green tea blend",
+                    "image": "assets/images/matcha.PNG"
                 },
                 {
                     "name": "Red Velvet",
                     "price": "22K",
-                    "description": "Classic red velvet taste"
+                    "description": "Classic red velvet taste",
+                    "image": "assets/images/redvelvet.PNG"
                 },
                 {
                     "name": "Taro",
                     "price": "22K",
-                    "description": "Creamy purple yam"
+                    "description": "Creamy purple yam",
+                    "image": "assets/images/taro.PNG"
                 },
                 {
                     "name": "Caramel",
                     "price": "22K",
-                    "description": "Sweet buttery caramel"
+                    "description": "Sweet buttery caramel",
+                    "image": "assets/images/caramel.png"
                 },
                 {
                     "name": "Chocolate",
                     "price": "24K",
-                    "description": "Rich cocoa flavor"
+                    "description": "Rich cocoa flavor",
+                    "image": "assets/images/chocolate.PNG"
                 },
                 {
                     "name": "Thai Tea",
                     "price": "23K",
-                    "description": "Authentic Thai blend"
+                    "description": "Authentic Thai blend",
+                    "image": "assets/images/thai-tea.PNG"
                 }
             ]
         },
@@ -161,17 +187,20 @@
                 {
                     "name": "Jasmine Tea",
                     "price": "Seikhlasnya",
-                    "description": "Teh melati harum yang menenangkan"
+                    "description": "Teh melati harum yang menenangkan",
+                    "image": "assets/images/jasmine-tea.PNG"
                 },
                 {
                     "name": "Lemon Tea",
                     "price": "Seikhlasnya",
-                    "description": "Segar dan asam, cocok untuk hari panas"
+                    "description": "Segar dan asam, cocok untuk hari panas",
+                    "image": "assets/images/lemon-tea.PNG"
                 },
                 {
                     "name": "Lychee Tea",
                     "price": "Seikhlasnya",
-                    "description": "Perpaduan teh dengan aroma leci yang manis"
+                    "description": "Perpaduan teh dengan aroma leci yang manis",
+                    "image": "assets/images/lychee-tea.PNG"
                 }
             ]
         }
