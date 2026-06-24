@@ -767,10 +767,17 @@ section {
     box-shadow: var(--shadow-lg);
 }
 
+.philosophy .section-title span,
+.philosophy .section-title h2,
+.philosophy .card h3,
+.philosophy .card p {
+    color: white;
+}
+
 .icon-box {
     font-size: 2.5rem;
     margin-bottom: var(--spacing-sm);
-    color: var(--color-accent);
+    color: white;
 }
 
 /* Menu Cards */
