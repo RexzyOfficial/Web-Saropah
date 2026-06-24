@@ -72,7 +72,7 @@
                 },
                 {
                     "name": "Butterscouth",
-                    "price": "23K",
+                    "price": "24K",
                     "description": "",
                     "image": "assets/images/butterscouth.PNG"
                 },
@@ -186,19 +186,19 @@
             "items": [
                 {
                     "name": "Jasmine Tea",
-                    "price": "Seikhlasnya",
+                    "price": "15K",
                     "description": "Teh melati harum yang menenangkan",
                     "image": "assets/images/jasmine-tea.PNG"
                 },
                 {
                     "name": "Lemon Tea",
-                    "price": "Seikhlasnya",
+                    "price": "15K",
                     "description": "Segar dan asam, cocok untuk hari panas",
                     "image": "assets/images/lemon-tea.PNG"
                 },
                 {
                     "name": "Lychee Tea",
-                    "price": "Seikhlasnya",
+                    "price": "15K",
                     "description": "Perpaduan teh dengan aroma leci yang manis",
                     "image": "assets/images/lychee-tea.PNG"
                 }
