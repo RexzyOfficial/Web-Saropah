@@ -1,5 +1,14 @@
 /* Google Fonts are now preloaded via <link> tags in HTML <head> for better performance (no @import render-blocking chain) */
 
+/* Autumn Chant - self-hosted script font (free for personal use; commercial use requires license from Roland Huse) */
+@font-face {
+    font-family: 'Autumn Chant';
+    src: url('/assets/fonts/AutumnChant.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 /* CSS Variables */
 :root {
     /* Colors */
@@ -680,6 +689,14 @@ header.scrolled .dropdown-toggle {
     color: white;
     font-size: 4rem;
     margin-bottom: var(--spacing-sm);
+}
+
+.hero h1.script-text {
+    font-family: 'Autumn Chant', cursive;
+    font-weight: normal;
+    font-size: clamp(3.5rem, 10vw, 7rem);
+    letter-spacing: normal;
+    line-height: 1.1;
 }
 
 .hero-sub {
