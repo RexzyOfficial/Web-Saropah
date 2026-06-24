@@ -13,13 +13,13 @@
 :root {
     /* Colors */
     --color-primary-dark: #1A1A1A;
-    --color-primary: #2C1810;
-    --color-primary-light: #5D4037;
+    --color-primary: #2B2B2B;
+    --color-primary-light: #555555;
     --color-accent: #C19A6B;
-    --color-bg-main: #F8F5F2;
+    --color-bg-main: #F5F5F5;
     --color-bg-secondary: #FFFFFF;
     --color-text-main: #1A1A1A;
-    --color-text-light: #F8F5F2;
+    --color-text-light: #FAFAFA;
     --color-text-muted: #666666;
 
     /* Typography */
