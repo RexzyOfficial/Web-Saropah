@@ -705,7 +705,7 @@ header.scrolled .dropdown-toggle {
     letter-spacing: 0.1em;
     text-transform: uppercase;
     margin-bottom: var(--spacing-xs);
-    color: var(--color-accent);
+    color: white;
 }
 
 .hero-tagline {
