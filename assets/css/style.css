@@ -705,7 +705,7 @@ header.scrolled .dropdown-toggle {
     letter-spacing: 0.1em;
     text-transform: uppercase;
     margin-bottom: var(--spacing-xs);
-    color: white;
+    color: var(--color-accent);
 }
 
 .hero-tagline {
@@ -1456,7 +1456,7 @@ footer {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=50');
+    background-image: url('https://files.catbox.moe/1kw33h.jpeg');
     background-size: cover;
     background-position: center;
     opacity: 0.15;
