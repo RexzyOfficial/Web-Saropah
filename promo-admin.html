@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Promo Admin — Kopi Saropah</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/webp" href="/assets/images/logo.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;500;600&display=swap">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f4f4f4;
+      color: #111;
+      min-height: 100vh;
+    }
+
+    /* ── Top bar ── */
+    .topbar {
+      background: #0a0a0a;
+      color: #fff;
+      padding: 0 2rem;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .topbar-logo {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #fff;
+    }
+    .topbar-badge {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #888;
+    }
+
+    /* ── Lock screen ── */
+    #lockScreen {
+      position: fixed;
+      inset: 0;
+      background: #0a0a0a;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .lock-card {
+      background: #1a1a1a;
+      border: 1px solid #2e2e2e;
+      border-radius: 12px;
+      padding: 2.5rem 2rem;
+      width: 100%;
+      max-width: 360px;
+      text-align: center;
+    }
+    .lock-card h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 0.5rem;
+    }
+    .lock-card p { font-size: 1.35rem; font-weight: 500; color: #fff; margin-bottom: 1.75rem; }
+    .lock-card input {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      background: #111;
+      border: 1px solid #333;
+      border-radius: 6px;
+      color: #fff;
+      font-size: 1rem;
+      letter-spacing: 0.2em;
+      text-align: center;
+      margin-bottom: 1rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .lock-card input:focus { border-color: #666; }
+    .lock-card button {
+      width: 100%;
+      padding: 0.85rem;
+      background: #fff;
+      color: #0a0a0a;
+      border: none;
+      border-radius: 6px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .lock-card button:hover { background: #ddd; }
+    .lock-error {
+      font-size: 0.8rem;
+      color: #e55;
+      margin-top: 0.6rem;
+      display: none;
+    }
+
+    /* ── Layout ── */
+    .main { max-width: 960px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+
+    .page-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 0.4rem;
+    }
+    .page-heading { font-size: 1.75rem; font-weight: 600; color: #111; margin-bottom: 2rem; }
+
+    /* ── Status banner ── */
+    .status-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      background: #fff;
+      border: 1px solid #e0e0e0;
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .status-left { display: flex; align-items: center; gap: 0.75rem; }
+    .status-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: #ccc;
+      flex-shrink: 0;
+      transition: background 0.3s;
+    }
+    .status-dot.on { background: #22c55e; box-shadow: 0 0 0 3px rgba(34,197,94,0.2); }
+    .status-dot.off { background: #ef4444; }
+    .status-label { font-family: 'Montserrat', sans-serif; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #444; }
+    .status-desc { font-size: 0.82rem; color: #888; }
+
+    /* Toggle switch */
+    .toggle-wrap { display: flex; align-items: center; gap: 0.6rem; }
+    .toggle-label-txt { font-family: 'Montserrat', sans-serif; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #888; }
+    .toggle {
+      position: relative;
+      width: 48px; height: 26px;
+      flex-shrink: 0;
+    }
+    .toggle input { opacity: 0; width: 0; height: 0; }
+    .slider {
+      position: absolute; inset: 0;
+      background: #ddd;
+      border-radius: 26px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .slider::before {
+      content: '';
+      position: absolute;
+      width: 20px; height: 20px;
+      left: 3px; top: 3px;
+      background: #fff;
+      border-radius: 50%;
+      transition: transform 0.3s;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+    }
+    input:checked + .slider { background: #111; }
+    input:checked + .slider::before { transform: translateX(22px); }
+
+    /* ── Cards ── */
+    .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    @media (max-width: 680px) { .grid2 { grid-template-columns: 1fr; } }
+
+    .card {
+      background: #fff;
+      border: 1px solid #e0e0e0;
+      border-radius: 10px;
+      padding: 1.75rem;
+    }
+    .card-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .field { margin-bottom: 1.1rem; }
+    .field label {
+      display: block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.66rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #666;
+      margin-bottom: 0.45rem;
+    }
+    .field input, .field select {
+      width: 100%;
+      padding: 0.75rem 0.9rem;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      color: #111;
+      background: #fafafa;
+      outline: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .field input:focus, .field select:focus { border-color: #999; background: #fff; }
+    .field .hint { font-size: 0.76rem; color: #aaa; margin-top: 0.4rem; line-height: 1.5; }
+
+    /* ── Preview ── */
+    .preview-area {
+      background: #f8f8f8;
+      border: 1px dashed #ddd;
+      border-radius: 8px;
+      min-height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+    .preview-area img {
+      max-width: 100%;
+      max-height: 340px;
+      object-fit: contain;
+      border-radius: 4px;
+      display: none;
+    }
+    .preview-empty {
+      text-align: center;
+      color: #bbb;
+    }
+    .preview-empty svg { margin-bottom: 0.5rem; opacity: 0.4; }
+    .preview-empty p { font-size: 0.82rem; }
+
+    /* Orientation badge */
+    .orientation-badge {
+      position: absolute;
+      bottom: 8px; right: 8px;
+      background: rgba(0,0,0,0.6);
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 4px;
+      display: none;
+    }
+
+    /* ── Save button ── */
+    .save-btn {
+      width: 100%;
+      margin-top: 1.25rem;
+      padding: 0.9rem;
+      background: #111;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .save-btn:hover { background: #333; transform: translateY(-1px); }
+    .save-btn:active { transform: translateY(0); }
+
+    /* ── Toast ── */
+    #toast {
+      position: fixed;
+      bottom: 2rem; left: 50%;
+      transform: translateX(-50%) translateY(80px);
+      background: #111;
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      z-index: 9998;
+      transition: transform 0.35s cubic-bezier(0.4,0,0.2,1), opacity 0.3s;
+      opacity: 0;
+      white-space: nowrap;
+    }
+    #toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+
+    /* ── Active promo log ── */
+    .log-section { margin-top: 1.5rem; }
+    .log-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 1rem;
+    }
+    .log-item {
+      background: #fff;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .log-img-thumb {
+      width: 56px; height: 40px;
+      object-fit: cover;
+      border-radius: 4px;
+      border: 1px solid #eee;
+      flex-shrink: 0;
+    }
+    .log-info { flex: 1; min-width: 0; }
+    .log-url {
+      font-size: 0.78rem;
+      color: #444;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
+    }
+    .log-meta { font-size: 0.72rem; color: #aaa; margin-top: 2px; }
+    .log-empty { font-size: 0.85rem; color: #bbb; text-align: center; padding: 1.5rem; }
+
+    .pill {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 20px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .pill-on { background: #dcfce7; color: #16a34a; }
+    .pill-off { background: #fee2e2; color: #dc2626; }
+
+    .del-btn {
+      background: none;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 4px 10px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #888;
+      cursor: pointer;
+      transition: all 0.2s;
+      flex-shrink: 0;
+    }
+    .del-btn:hover { background: #fee2e2; border-color: #fca5a5; color: #dc2626; }
+
+    .preview-btn {
+      background: none;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 4px 10px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #555;
+      cursor: pointer;
+      transition: all 0.2s;
+      flex-shrink: 0;
+    }
+    .preview-btn:hover { background: #f0f0f0; }
+  </style>
+</head>
+<body>
+
+<!-- Lock Screen -->
+<div id="lockScreen">
+  <div class="lock-card">
+    <h2>Kopi Saropah</h2>
+    <p>🔒 Promo Admin</p>
+    <input type="password" id="pinInput" placeholder="Masukkan PIN" maxlength="6">
+    <button onclick="checkPin()">Masuk</button>
+    <p class="lock-error" id="lockError">PIN salah. Coba lagi.</p>
+  </div>
+</div>
+
+<!-- Top Bar -->
+<div class="topbar">
+  <span class="topbar-logo">Kopi Saropah</span>
+  <span class="topbar-badge">Promo Admin Panel</span>
+</div>
+
+<!-- Main -->
+<div class="main">
+  <p class="page-title">Dashboard</p>
+  <h1 class="page-heading">Kelola Banner Promo</h1>
+
+  <!-- Status Bar -->
+  <div class="status-bar">
+    <div class="status-left">
+      <div class="status-dot" id="statusDot"></div>
+      <div>
+        <div class="status-label" id="statusLabel">Memuat...</div>
+        <div class="status-desc" id="statusDesc">—</div>
+      </div>
+    </div>
+    <div class="toggle-wrap">
+      <span class="toggle-label-txt">Aktifkan Promo</span>
+      <label class="toggle">
+        <input type="checkbox" id="promoToggle">
+        <span class="slider"></span>
+      </label>
+    </div>
+  </div>
+
+  <!-- Grid -->
+  <div class="grid2">
+
+    <!-- Form -->
+    <div class="card">
+      <div class="card-title">Pengaturan Promo</div>
+
+      <div class="field">
+        <label>Link Gambar Promo</label>
+        <input type="url" id="promoUrl" placeholder="https://..." oninput="previewImage(this.value)">
+        <p class="hint">Bisa dari Google Drive, Imgur, Cloudinary, atau link gambar manapun.<br>Landscape (16:9) atau Portrait (4:5) — otomatis menyesuaikan.</p>
+      </div>
+
+      <div class="field">
+        <label>Link Tujuan (opsional)</label>
+        <input type="url" id="promoLink" placeholder="https://easyeat.id/r/kopisaropah/3">
+        <p class="hint">Kalau diklik, banner membuka halaman ini. Kosongkan kalau popup hanya ingin ditutup saja.</p>
+      </div>
+
+      <div class="field">
+        <label>Muncul Setelah</label>
+        <select id="promoDelay">
+          <option value="0">Langsung saat halaman dibuka</option>
+          <option value="1500">1,5 detik</option>
+          <option value="3000" selected>3 detik</option>
+          <option value="5000">5 detik</option>
+          <option value="8000">8 detik</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Frekuensi Tampil</label>
+        <select id="promoFreq">
+          <option value="always">Setiap kali halaman dibuka</option>
+          <option value="session" selected>Sekali per sesi (refresh = muncul lagi)</option>
+          <option value="once">Sekali per hari</option>
+        </select>
+      </div>
+
+      <button class="save-btn" onclick="savePromo()">Simpan &amp; Terapkan</button>
+    </div>
+
+    <!-- Preview -->
+    <div class="card">
+      <div class="card-title">Preview Gambar</div>
+      <div class="preview-area" id="previewArea">
+        <div class="preview-empty" id="previewEmpty">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          <p>Masukkan link gambar<br>untuk preview</p>
+        </div>
+        <img id="previewImg" alt="Preview promo" src="">
+        <div class="orientation-badge" id="orientationBadge"></div>
+      </div>
+      <p style="font-size:0.75rem;color:#bbb;margin-top:0.75rem;line-height:1.6">
+        Popup otomatis menyesuaikan ukuran — gambar portrait akan tampil lebih sempit &amp; tinggi, landscape lebih lebar &amp; pendek.
+      </p>
+    </div>
+
+  </div>
+
+  <!-- Log -->
+  <div class="log-section">
+    <div class="log-title">Promo Tersimpan</div>
+    <div id="promoLog">
+      <div class="log-empty">Belum ada promo yang disimpan.</div>
+    </div>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<script>
+  /* ── PIN ── */
+  const ADMIN_PIN = '1234'; // Ganti PIN di sini
+
+  function checkPin() {
+    const val = document.getElementById('pinInput').value;
+    if (val === ADMIN_PIN) {
+      document.getElementById('lockScreen').style.display = 'none';
+      loadState();
+    } else {
+      document.getElementById('lockError').style.display = 'block';
+      document.getElementById('pinInput').value = '';
+      document.getElementById('pinInput').focus();
+    }
+  }
+  document.getElementById('pinInput').addEventListener('keydown', e => {
+    if (e.key === 'Enter') checkPin();
+  });
+
+  /* ── Storage key ── */
+  const KEY = 'saropah_promo_config';
+
+  /* ── Load state ── */
+  function loadState() {
+    const raw = localStorage.getItem(KEY);
+    const cfg = raw ? JSON.parse(raw) : null;
+
+    if (cfg) {
+      document.getElementById('promoUrl').value   = cfg.url   || '';
+      document.getElementById('promoLink').value  = cfg.link  || '';
+      document.getElementById('promoDelay').value = cfg.delay ?? 3000;
+      document.getElementById('promoFreq').value  = cfg.freq  || 'session';
+      document.getElementById('promoToggle').checked = cfg.active || false;
+      if (cfg.url) previewImage(cfg.url);
+    }
+    updateStatusBar();
+    renderLog();
+  }
+
+  /* ── Toggle ── */
+  document.getElementById('promoToggle').addEventListener('change', () => {
+    const raw = localStorage.getItem(KEY);
+    const cfg = raw ? JSON.parse(raw) : {};
+    cfg.active = document.getElementById('promoToggle').checked;
+    localStorage.setItem(KEY, JSON.stringify(cfg));
+    updateStatusBar();
+    toast(cfg.active ? '✅ Promo diaktifkan' : '🔕 Promo dinonaktifkan');
+  });
+
+  /* ── Status bar ── */
+  function updateStatusBar() {
+    const raw = localStorage.getItem(KEY);
+    const cfg = raw ? JSON.parse(raw) : null;
+    const dot   = document.getElementById('statusDot');
+    const label = document.getElementById('statusLabel');
+    const desc  = document.getElementById('statusDesc');
+
+    if (!cfg || !cfg.url) {
+      dot.className = 'status-dot';
+      label.textContent = 'Belum dikonfigurasi';
+      desc.textContent = 'Masukkan link gambar dan simpan.';
+    } else if (cfg.active) {
+      dot.className = 'status-dot on';
+      label.textContent = 'Promo Aktif';
+      desc.textContent = 'Banner akan muncul di semua halaman website.';
+    } else {
+      dot.className = 'status-dot off';
+      label.textContent = 'Promo Nonaktif';
+      desc.textContent = 'Banner tidak ditampilkan. Aktifkan toggle untuk menampilkan.';
+    }
+  }
+
+  /* ── Preview ── */
+  function previewImage(url) {
+    const img    = document.getElementById('previewImg');
+    const empty  = document.getElementById('previewEmpty');
+    const badge  = document.getElementById('orientationBadge');
+
+    if (!url) {
+      img.style.display = 'none';
+      empty.style.display = 'flex';
+      badge.style.display = 'none';
+      return;
+    }
+
+    img.style.display = 'none';
+    empty.style.display = 'flex';
+    img.onload = () => {
+      empty.style.display = 'none';
+      img.style.display = 'block';
+      const isLandscape = img.naturalWidth >= img.naturalHeight;
+      badge.textContent = isLandscape ? '⬛ Landscape' : '📱 Portrait';
+      badge.style.display = 'block';
+    };
+    img.onerror = () => {
+      empty.style.display = 'flex';
+      img.style.display = 'none';
+      badge.style.display = 'none';
+      toast('⚠️ Gambar tidak bisa dimuat. Cek link-nya ya.');
+    };
+    img.src = url;
+  }
+
+  /* ── Save ── */
+  function savePromo() {
+    const url   = document.getElementById('promoUrl').value.trim();
+    const link  = document.getElementById('promoLink').value.trim();
+    const delay = parseInt(document.getElementById('promoDelay').value);
+    const freq  = document.getElementById('promoFreq').value;
+    const active = document.getElementById('promoToggle').checked;
+
+    if (!url) { toast('⚠️ Link gambar belum diisi!'); return; }
+
+    const cfg = { url, link, delay, freq, active, savedAt: new Date().toISOString() };
+    localStorage.setItem(KEY, JSON.stringify(cfg));
+    updateStatusBar();
+    renderLog();
+    toast('✅ Promo berhasil disimpan!');
+  }
+
+  /* ── Log ── */
+  function renderLog() {
+    const el  = document.getElementById('promoLog');
+    const raw = localStorage.getItem(KEY);
+    const cfg = raw ? JSON.parse(raw) : null;
+
+    if (!cfg || !cfg.url) {
+      el.innerHTML = '<div class="log-empty">Belum ada promo yang disimpan.</div>';
+      return;
+    }
+
+    const savedAt = cfg.savedAt ? new Date(cfg.savedAt).toLocaleString('id-ID', { dateStyle:'medium', timeStyle:'short' }) : '—';
+    const freqMap = { always: 'Setiap buka halaman', session: 'Sekali per sesi', once: 'Sekali per hari' };
+
+    el.innerHTML = `
+      <div class="log-item">
+        <img class="log-img-thumb" src="${escHtml(cfg.url)}" alt="Promo thumb"
+             onerror="this.style.display='none'">
+        <div class="log-info">
+          <div class="log-url">${escHtml(cfg.url)}</div>
+          <div class="log-meta">
+            Disimpan: ${savedAt} &nbsp;·&nbsp;
+            Delay: ${cfg.delay / 1000 || 0}s &nbsp;·&nbsp;
+            ${freqMap[cfg.freq] || cfg.freq}
+          </div>
+        </div>
+        <span class="pill ${cfg.active ? 'pill-on' : 'pill-off'}">${cfg.active ? 'Aktif' : 'Nonaktif'}</span>
+        <button class="preview-btn" onclick="openPopupPreview()">Preview</button>
+        <button class="del-btn" onclick="deletePromo()">Hapus</button>
+      </div>`;
+  }
+
+  function deletePromo() {
+    if (!confirm('Hapus konfigurasi promo?')) return;
+    localStorage.removeItem(KEY);
+    document.getElementById('promoUrl').value  = '';
+    document.getElementById('promoLink').value = '';
+    document.getElementById('promoToggle').checked = false;
+    previewImage('');
+    updateStatusBar();
+    renderLog();
+    toast('🗑️ Promo dihapus');
+  }
+
+  /* ── Live popup preview ── */
+  function openPopupPreview() {
+    const raw = localStorage.getItem(KEY);
+    const cfg = raw ? JSON.parse(raw) : null;
+    if (!cfg || !cfg.url) { toast('Simpan promo dulu ya!'); return; }
+
+    // Create a quick preview overlay
+    const overlay = document.createElement('div');
+    overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:10000;display:flex;align-items:center;justify-content:center;padding:1.5rem;animation:fadeIn 0.2s ease';
+    overlay.innerHTML = `
+      <style>@keyframes fadeIn{from{opacity:0}to{opacity:1}}</style>
+      <div style="position:relative;max-width:min(500px,90vw);width:100%">
+        <button onclick="this.closest('[data-overlay]').remove()"
+          style="position:absolute;top:-14px;right:-14px;width:32px;height:32px;background:#fff;border:none;border-radius:50%;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.3);z-index:1;line-height:1">✕</button>
+        <img src="${escHtml(cfg.url)}" alt="Promo preview"
+          style="width:100%;height:auto;border-radius:10px;display:block;box-shadow:0 8px 40px rgba(0,0,0,0.5)"
+          onerror="this.parentElement.innerHTML='<p style=color:#fff;text-align:center;padding:2rem>Gambar gagal dimuat</p>'">
+        ${cfg.link ? `<a href="${escHtml(cfg.link)}" target="_blank" style="display:block;text-align:center;margin-top:1rem;padding:0.6rem 1.5rem;background:#fff;color:#111;border-radius:6px;font-family:Montserrat,sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase">Lihat Promo →</a>` : ''}
+      </div>`;
+    overlay.setAttribute('data-overlay', '');
+    overlay.addEventListener('click', e => { if (e.target === overlay) overlay.remove(); });
+    document.body.appendChild(overlay);
+  }
+
+  /* ── Toast ── */
+  let toastTimer;
+  function toast(msg) {
+    const el = document.getElementById('toast');
+    el.textContent = msg;
+    el.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => el.classList.remove('show'), 2800);
+  }
+
+  function escHtml(s) {
+    return s.replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+</script>
+
+</body>
+</html>
